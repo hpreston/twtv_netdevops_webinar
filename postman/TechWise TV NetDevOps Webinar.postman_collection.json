@@ -1,0 +1,491 @@
+{
+	"info": {
+		"name": "TechWise TV NetDevOps Webinar",
+		"_postman_id": "67cdf42c-f6f1-78df-6a7c-33079378fc09",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "NX-API REST",
+			"item": [
+				{
+					"name": "Login Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"aaaUser\": {\n    \"attributes\": {\n      \"name\": \"{{username}}\",\n      \"pwd\": \"{{password}}\"\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port1}}/api/aaaLogin.json",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port1}}",
+							"path": [
+								"api",
+								"aaaLogin.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET SNMP Instances",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:{{port1}}/api/node/mo/sys/snmp.xml?query-target=subtree",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port1}}",
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"sys",
+								"snmp.xml"
+							],
+							"query": [
+								{
+									"key": "query-target",
+									"value": "subtree",
+									"equals": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Configure SNMP Plus Example",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<topSystem>\n<snmpEntity>\n<snmpInst>\n<snmpCommSecP commAcess=\"unspecified\" grpName=\"network-operator\" name=\"NXAPI2\">\n<snmpAcl useAclName=\"gnoc_ro\" useIpv4AclName=\"\" useIpv6AclName=\"\"/>\n</snmpCommSecP>\n<snmpTraps>\n<snmpTfeaturecontrol>\n<snmpFeatureOpStatusChange trapstatus=\"enable\"/>\n</snmpTfeaturecontrol>\n<snmpTstpx>\n<snmpLoopInconsistency trapstatus=\"enable\"/>\n<snmpInconsistency trapstatus=\"enable\"/>\n<snmpRootInconsistency trapstatus=\"enable\"/>\n</snmpTstpx>\n<snmpTsysmgr>\n<snmpCseFailSwCoreNotifyExtended trapstatus=\"enable\"/>\n</snmpTsysmgr>\n<snmpTlink>\n<snmpCiscoXcvrMonStatusChange trapstatus=\"enable\"/>\n</snmpTlink>\n<snmpTbridge>\n<snmpNewRoot trapstatus=\"enable\"/>\n<snmpTopologyChange trapstatus=\"enable\"/>\n</snmpTbridge>\n<snmpTconfig>\n<snmpCLIRunningConfigChange trapstatus=\"enable\"/>\n</snmpTconfig>\n</snmpTraps>\n<snmpHost commName=\"NXAPI2\" hostName=\"192.168.0.101\" notifType=\"traps\" secLevel=\"unspecified\" udpPortID=\"162\" version=\"v2c\"/>\n<snmpHost commName=\"NXAPI2\" hostName=\"192.168.0.102\" notifType=\"traps\" secLevel=\"unspecified\" udpPortID=\"162\" version=\"v2c\"/>\n</snmpInst>\n</snmpEntity>\n<datetimeClkPol>\n<datetimeNtpSrcIf srcIf=\"mgmt0\"/>\n<datetimeNtpProvider name=\"NXAPITIME\" preferred=\"yes\" provT=\"server\"/>\n<datetimeNtpProvider name=\"NXAPITIME2\" provT=\"server\"/>\n</datetimeClkPol>\n<aclEntity>\n<ipv4aclAF>\n<ipv4aclACL name=\"gnoc_ro\">\n<ipv4aclACE action=\"permit\" dstPrefix=\"0.0.0.0\" protocol=\"ip\" seqNum=\"60\" srcPrefix=\"192.168.0.101\" srcPrefixLength=\"32\" userSetBit=\"1\"/>\n<ipv4aclACE action=\"permit\" dstPrefix=\"0.0.0.0\" protocol=\"ip\" seqNum=\"50\" srcPrefix=\"192.168.0.101\" srcPrefixLength=\"32\" userSetBit=\"1\"/>\n<ipv4aclACE action=\"permit\" dstPrefix=\"0.0.0.0\" protocol=\"ip\" seqNum=\"30\" srcPrefix=\"192.168.0.101\" srcPrefixLength=\"32\" userSetBit=\"1\"/>\n<ipv4aclACE action=\"permit\" dstPrefix=\"0.0.0.0\" protocol=\"ip\" seqNum=\"10\" srcPrefix=\"192.168.0.101\" srcPrefixLength=\"24\" userSetBit=\"1\"/>\n<ipv4aclACE action=\"permit\" dstPrefix=\"0.0.0.0\" protocol=\"ip\" seqNum=\"20\" srcPrefix=\"192.168.0.101\" srcPrefixLength=\"26\" userSetBit=\"1\"/>\n<ipv4aclACE action=\"permit\" dstPrefix=\"0.0.0.0\" protocol=\"ip\" seqNum=\"40\" srcPrefix=\"192.168.0.101\" srcPrefixLength=\"32\" userSetBit=\"1\"/>\n</ipv4aclACL>\n</ipv4aclAF>\n</aclEntity>\n<syslogSyslog>\n<syslogRemoteDest host=\"192.168.0.101\" severity=\"information\" vrfName=\"default\"/>\n</syslogSyslog>\n</topSystem>"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port1}}/api/node/mo/sys.xml",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port1}}",
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"sys.xml"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Interface Eth1/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:{{port1}}/api/node/mo/sys/intf/phys-[eth1/1].json",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port1}}",
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"sys",
+								"intf",
+								"phys-[eth1",
+								"1].json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Interface Eth1/1 - Desc",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"l1PhysIf\": {\n        \"attributes\": {\n            \"descr\": \"Configured with NX-API REST\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port1}}/api/node/mo/sys/intf/phys-[eth1/1].json",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port1}}",
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"sys",
+								"intf",
+								"phys-[eth1",
+								"1].json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Class Query - VLANS other than 1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:{{port1}}/api/node/class/l2BD.json?query-target-filter=and(ne(l2BD.id,\"1\"))",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port1}}",
+							"path": [
+								"api",
+								"node",
+								"class",
+								"l2BD.json"
+							],
+							"query": [
+								{
+									"key": "query-target-filter",
+									"value": "and(ne(l2BD.id,\"1\"))",
+									"equals": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET VLAN 1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:{{port1}}/api/node/mo/sys/bd/bd-[vlan-1].json",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port1}}",
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"sys",
+								"bd",
+								"bd-[vlan-1].json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET VLAN 501",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:{{port1}}/api/node/mo/sys/bd/bd-[vlan-501].json",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port1}}",
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"sys",
+								"bd",
+								"bd-[vlan-501].json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST VLAN 501",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"l2BD\": {\n        \"attributes\": {\n            \"fabEncap\": \"vlan-501\",\n            \"name\": \"NX-API-REST1\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port1}}/api/node/mo/sys/bd/bd-[vlan-501].json",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port1}}",
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"sys",
+								"bd",
+								"bd-[vlan-501].json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE VLAN 501",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"l2BD\": {\n        \"attributes\": {\n            \"fabEncap\": \"vlan-501\",\n            \"name\": \"NX-API-REST1\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port1}}/api/node/mo/sys/bd/bd-[vlan-501].json",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port1}}",
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"sys",
+								"bd",
+								"bd-[vlan-501].json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Full Object Tree Query",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:{{port1}}/api/node/mo/sys.json?query-target=subtree",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port1}}",
+							"path": [
+								"api",
+								"node",
+								"mo",
+								"sys.json"
+							],
+							"query": [
+								{
+									"key": "query-target",
+									"value": "subtree",
+									"equals": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "VIRL APIs",
+			"description": "",
+			"item": [
+				{
+					"name": "VIRL Simulation List",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "guest",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "guest",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic Z3Vlc3Q6Z3Vlc3Q="
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://10.10.20.160:19399/simengine/rest/list",
+							"protocol": "http",
+							"host": [
+								"10",
+								"10",
+								"20",
+								"160"
+							],
+							"port": "19399",
+							"path": [
+								"simengine",
+								"rest",
+								"list"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "VIRL Simulator Nodes List",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "guest",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "guest",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic Z3Vlc3Q6Z3Vlc3Q="
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://10.10.20.160:19399/simengine/rest/nodes/twtv_netdevops_webinar_default_5z3DcI",
+							"protocol": "http",
+							"host": [
+								"10",
+								"10",
+								"20",
+								"160"
+							],
+							"port": "19399",
+							"path": [
+								"simengine",
+								"rest",
+								"nodes",
+								"twtv_netdevops_webinar_default_5z3DcI"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "VIRL Simulator Nodes Serial Ports",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "guest",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "guest",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic Z3Vlc3Q6Z3Vlc3Q="
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://10.10.20.160:19399/roster/rest",
+							"protocol": "http",
+							"host": [
+								"10",
+								"10",
+								"20",
+								"160"
+							],
+							"port": "19399",
+							"path": [
+								"roster",
+								"rest"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
