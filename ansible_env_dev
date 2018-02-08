@@ -1,0 +1,5 @@
+# usage: source ansible_env_dev
+
+# Authentication for ansible network modules
+export ANSIBLE_NET_USERNAME=vagrant
+export ANSIBLE_NET_PASSWORD=vagrant

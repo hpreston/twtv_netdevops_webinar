@@ -1,0 +1,27 @@
+##############################################################
+# Learning Series: Network Programmability Basics
+# Module: NetDevOps
+# Lesson: Ansible Part 2: Using Ansible for Network Configuration
+# Author: Hank Preston <hapresto@cisco.com>
+#
+# example1.yaml
+# Illustrate the following concepts:
+# - Basic Playbook Structure for NX-OS Modules
+##############################################################
+---
+- name: Retrieve facts from Switches
+  hosts: dev
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: "Retrieving NX-OS Facts"
+      nxos_facts:
+        host: "{{inventory_hostname}}"
+        port: "{{http_port | default('80')}}"
+        transport: nxapi
+        use_ssl: no
+      register: nxos_info
+
+    - name: "Print NX-OS Facts"
+      debug: msg="{{nxos_info}}"
