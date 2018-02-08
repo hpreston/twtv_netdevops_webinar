@@ -1,0 +1,18 @@
+---
+- name: Clear Lab Pipeline
+  hosts: devbox
+  gather_facts: no
+
+  tasks:
+    - name: docker-compose down the Pipeline
+      shell: docker-compose down
+      args:
+        chdir: ~/twtv_netdevops_webinar/sbx_setup/pipeline
+        executable: /bin/bash
+
+    - name: Delete the Repo
+      shell: rm -Rf twtv_netdevops_webinar/
+      args:
+        chdir: ~/
+        executable: /bin/bash
+        removes: ~/twtv_netdevops_webinar
