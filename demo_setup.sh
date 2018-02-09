@@ -41,6 +41,9 @@ echo "  - Setting up Drone CLI ENV"
 export DRONE_SERVER=http://10.10.20.20
 export DRONE_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZXh0IjoibmV0ZGV2b3BzdXNlciIsInR5cGUiOiJ1c2VyIn0.24hOotRJyhNegtUPRjcyDzK4QyOW3xWWPJeUhozGsYk
 
+echo "  - Opening up CICD Pipeline Web Pages"
+open http://10.10.20.20/gogs/netdevopsuser/network_cicd_lab -a /Applications/Google\ Chrome.app
+open http://10.10.20.20 -a /Applications/Google\ Chrome.app
 
 echo "Step 5: Setup VIRL for Lab"
 source lab_env
@@ -59,3 +62,5 @@ git clone http://netdevopsuser@10.10.20.20/gogs/netdevopsuser/twtv_cicd_demo
 cd twtv_cicd_demo
 git config user.name "NetDevOps User"
 git config user.email "netdevopsuser@netdevops.local"
+
+cd ..

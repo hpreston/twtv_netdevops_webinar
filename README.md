@@ -2,6 +2,8 @@
 
 Code, setup and info for the TechWise TV Webinar on February 14, 2018
 
+This readme documents the basic steps used in the demonstrations, but do not include any descriptions of what is going on, or details on tools used.  This is **not** meant to be an learning lab on the topics, but rather documentation on how to replicate the demos.  See the Webinar recording for more information.  
+
 # Webinar Setup
 
 ## Pre-reqs
@@ -18,6 +20,9 @@ You will need the following installed and working on your local workstation to c
 * Vagrant and VirtualBox
 * Cisco AnyConnect or OpenConnect
 * Homebrew
+* Google Chrome (other browsers would work, but commands assume Chrome)
+* Postman REST API Client
+* Drone 0.7 CLI Tool installed
 
 ## Setup Steps
 
@@ -47,7 +52,7 @@ source demo_setup.sh
 # Demo 1: Vagrant
 ***Note1: This demo uses a lot of local memory (8GB).  Be sure to close all unneeded programs.***
 
-***Note2: This demo assumes that you have already created the box for nxos/7.0.3.I7.2.  If you lack it, skip to the end of this demo to create the box.***
+***Note2: This demo assumes that you have already created the box for nxos/7.0.3.I7.2.  If you lack it, skip to the end of this demo for information on how to create the box.***
 
 1. Explore different Vagrant commands.  
 
@@ -172,7 +177,7 @@ ansible-playbook example1.yaml
 1. Run the second example against the vagrant switch.  
 
 ```bash
-ansible-playbook exmaple2.yaml
+ansible-playbook example2.yaml
 ```
 
 # Demo 3: VIRL
