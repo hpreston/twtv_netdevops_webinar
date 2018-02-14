@@ -42,7 +42,7 @@ export DRONE_SERVER=http://10.10.20.20
 export DRONE_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZXh0IjoibmV0ZGV2b3BzdXNlciIsInR5cGUiOiJ1c2VyIn0.24hOotRJyhNegtUPRjcyDzK4QyOW3xWWPJeUhozGsYk
 
 echo "  - Opening up CICD Pipeline Web Pages"
-open http://10.10.20.20/gogs/netdevopsuser/network_cicd_lab -a /Applications/Google\ Chrome.app
+open http://10.10.20.20/gogs/netdevopsuser/twtv_cicd_demo -a /Applications/Google\ Chrome.app
 open http://10.10.20.20 -a /Applications/Google\ Chrome.app
 
 echo "Step 5: Setup VIRL for Lab"
