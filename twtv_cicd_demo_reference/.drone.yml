@@ -1,0 +1,24 @@
+pipeline:
+  Deployment-ConfigProdNetwork:
+    image: hpreston/drone-ansible-netdevops
+    commands:
+      - . ./ansible_env_virl
+      - ansible-playbook network_deploy.yaml
+    when:
+      branch: master
+
+  # Deployment-RunNetworkTests:
+  #   image: hpreston/drone-ansible-netdevops
+  #   commands:
+  #     - cd ansible
+  #     - . ./ansible_env_prod
+  #     - ansible-playbook -i hosts_prod playbooks/testing-playbook.yml
+  #   when:
+  #     branch: master
+
+  SparkNotify:
+    image: hpreston/drone-spark:0.7
+    secrets: [ SPARK_TOKEN, PERSONEMAIL ]
+    message: "Build Done!"
+    when:
+      status: [ success, failure ]
