@@ -17,7 +17,7 @@ pyasn1==0.4.2
 pycparser==2.18
 PyNaCl==1.2.1
 python-dateutil==2.6.1
-PyYAML==3.12
+PyYAML==5.4
 requests==2.18.4
 six==1.11.0
 tabulate==0.8.2
