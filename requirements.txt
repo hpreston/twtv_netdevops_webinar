@@ -21,5 +21,5 @@ PyYAML==3.12
 requests==2.18.4
 six==1.11.0
 tabulate==0.8.2
-urllib3==1.22
+urllib3==1.26.5
 virlutils==0.3
